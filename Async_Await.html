@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // without Async
+        let result = function(score){
+            return new Promise(function(resolve, reject){
+                console.log("Calculating result")
+                if (score > 50){
+                    resolve("Cong you have Pass")
+                }
+                else{
+                    reject("You are not good")
+                }
+            })
+        }
+
+        let grade = function(response){
+            return new Promise(function(resolve, reject){
+                console.log("calculating Result")
+                resolve("Your grade is A" + response)
+            })
+        }
+/*
+        result(80).then(response => {
+            console.log("Result to see it")
+            return grade(response)
+        }).then(FianlGrade => {
+            console.log(FianlGrade)
+        }).catch(err =>{
+            console.log(err)
+        })
+*/
+        async function calculatingResult() {
+            try{
+            const response = await result(90)
+            console.log("result recived0")
+            const FianlGrade = await grade(response)
+            console.log(FianlGrade) 
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+        calculatingResult()
+    </script>
+    
+</body>
+</html>

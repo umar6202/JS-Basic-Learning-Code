@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    JS tutoral
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loops</title>
+    <style>
+        body {
+            margin: auto;
+            padding: 0;
+        }
+
+        p {
+            border: 1px solid rgb(0, 0, 0);
+            font-size: 2rem;
+            font-family: lucida calligraphy;
+        }
+
+        p::first-letter {
+            color: red;
+            box-shadow: cyan;
+            font-size: 3rem;
+            color: red;
+            text-shadow: 5px 8px 9px cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Arrays and LOOP</h1>
+    <div id="container">
+    <p id="demo"> </p>
+    </div>
+    <script>
+        let Container = document.getElementById("container");
+        function Create(text){
+            let Para = document.createElement("p");
+            Para.innerHTML = text;
+            Container.append(Para);
+        }
+
+        let cars = ["BMW ", "Volvo ", "Mehran "];
+        document.getElementById("demo").innerHTML = cars;
+        Create(cars);
+
+
+        let BMW = cars[1];
+        document.getElementById("demo").innerHTML = BMW;
+        Create(BMW);
+
+        let len = cars.length;
+        document.getElementById('demo').innerHTML = BMW;
+        Create(BMW);
+
+        //for Last Item
+
+        let lastItem = cars[cars.length - 1];
+        document.getElementById('demo').innerHTML = lastItem;
+        Create(lastItem);
+
+        // for loop
+
+        cars.forEach((items, index) => {console.log(items, index);});
+
+        document.getElementById('demo').innerHTML = cars.toString();
+        Create(cars.toString());
+
+        let last1 = cars.pop()
+        let last2 = cars[cars.length - 1];
+        document.getElementById('demo').innerHTML = last2;
+        Create(last1);
+        cars.forEach((items, index) => {console.log(items, index);});
+
+        cars.push("Audi")  
+        let lastI = cars[cars.length - 1];
+        document.getElementById('demo').innerHTML = lastI;
+        Create(lastI);
+        cars.forEach((items, index) => {console.log(items, index);});
+
+        cars.shift();
+        document.getElementById('demo').innerHTML = cars;
+        Create(cars);
+
+        cars.unshift("Vitz");
+        document.getElementById('demo').innerHTML = cars;
+        Create(cars);
+
+        let bikes = ["Yamaha: YBR-125G ", "Honda: CG-125 ", "Suzuki: GR-150 "];
+        let vehicles = cars.concat(bikes);
+        vehicles.sort();
+        document.getElementById('demo').innerHTML = vehicles;
+        Create(vehicles);
+
+        vehicles.reverse();
+        document.getElementById('demo').innerHTML = vehicles;
+        Create(vehicles);
+
+        let num1 = [2, 3, 4, 5, 6, 7];
+        let num2 = num1.map(multiply);
+        function multiply(value){
+            return value*2;
+        }
+        document.getElementById('demo').innerHTML = num2;
+        Create(num2);
+
+        num3 = num1.filter(comp);
+        function comp(value){
+            return value>4;
+        }
+
+        document.getElementById('demo').innerHTML = num3;
+        Create(num3);
+
+        num4 = num1.reduce(sum);
+        function sum(total, value){
+            return total + value;
+        }
+        document.getElementById('demo').innerHTML = num4;
+        Create(num4);
+
+        let x;
+        for (x=0; x<5; x++){
+            console.log(x)
+        }
+
+        let y=1;
+        while(y <= 5){
+            console.log(y)
+            y++
+        }
+
+        let z = 5;
+        do{
+            console.log(z)
+            z++
+        }
+        while(z<10)
+
+        let w;
+        for ( w= 1; w<= 100; w++){
+            if (w==25){
+              continue
+            }
+            console.log(w)
+        }
+
+
+
+    </script>
+</body>
+
+</html>

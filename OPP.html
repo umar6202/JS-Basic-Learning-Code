@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> OOP + Fn </h1>
+    <div id="container">
+        <p id="demo"></p>
+        <button id="btn">Click</button>
+    </div>
+
+    <script>
+       
+        let Container = document.getElementById("container");
+
+        function create(Text){
+            let Para = document.createElement("p");
+            Para.innerHTML = Text;
+            Container.appendChild(Para);
+        }
+
+        var student = {
+            name: "Dani",
+            age: 31,
+            studies: "Computer Science"
+        };
+        create(student.name + " of the age " + student.age + " studies in " + student.studies);
+
+        student.age  = 50;
+        q = student.age;
+        create(student.name + " of the age " + q + " studies in " + student.studies);
+
+        function stud(name, age, studies){
+            this.name = name;
+            this.age = age;
+            this.studies = studies;
+        }
+
+        var Students = stud("Abid", "15", "Mechanics");
+        create(name);
+
+        let user = {
+            UidName: "Abu",
+            UidAge: 20,
+        };
+
+        function Hi(){
+            alert("Hello");
+        }
+
+        user.message  = Hi;
+        create("Hee" + user.UidName + user.UidAge);
+        document.getElementById("btn").onclick = user.message;
+
+        let car = {
+            model: "BMW 320d",
+            color: "red",
+            fuel_type: "Petrol",
+            get fuel(){
+                return this.fuel_type
+            },
+        };
+        create(car.fuel);
+
+        let Bike = {
+            model: "YAMAHA 125G",
+            color: "red",
+            fuel_type: "",
+            set fuel(fuel){
+                this.fuel_type = fuel;
+            }
+        }
+        Bike.fuel = "Diesel";
+        create(Bike.fuel_type);
+
+
+        var value = 50;
+
+        function ValueCheck(){
+            var value = 100;
+            alert("Value = " + value);
+            alert("This Value = " + this.value);
+        }
+        ValueCheck()
+
+        const random = {
+            name: "John",
+            video: ["Javascipt", "this", "keyword"],
+            info(){
+                console.log("my Name is: " + this.name)
+                this.video.forEach(function(tag){
+                    console.log(tag);
+                })
+            }    
+        }
+        random.info()
+
+        let fn1 = function(){
+            alert("hello")
+        }
+        create(fn1());
+
+        var fn2 = new Function("a","b", "return a*b");
+        var fn2a = fn2(2, 30);
+        create("The Multi is: " + fn2a);
+
+        (function(){
+            alert("fn without calling")
+        })();
+
+        function Product(c, d){
+            return c * d
+        }
+        let fnPro = Product(3, 6);
+        create("the Product of c & d is: " + fnPro);
+
+        let fnProAdd = Product(3, 6) + 5;
+        create("the Product of c & d + 5 is: " + fnProAdd);
+
+        var body = "return Math.PI + rad * rad";
+        var circle = new Function("rad", body);
+        alert(circle(5))
+
+        // Arrow Fn
+        const fn3 = (a, b, c) => { return a + b - c}
+        let fn3Result = fn3(15, 25, 30);
+        create("Arrow Fn: "+ fn3Result);
+
+        function* generater(){
+            yield 1;
+            yield 2;
+            return 3;
+        }
+        let fn4 = generater();
+        let gen1 = fn4.next();
+        create(JSON.stringify(gen1));
+        let gen2 = fn4.next();
+        create(JSON.stringify(gen2));
+        let gen3 = fn4.next();
+        create(JSON.stringify(gen3));
+
+        let p = 5;
+        let r = 15;
+        let s = 25;
+        console.log(eval(p));
+        console.log(eval(r));
+        console.log(eval(s));
+        console.log(eval(p + r));
+        
+    </script>
+</body>
+</html>
